@@ -24,7 +24,9 @@ function App() {
           </button> */}
           <Button 
             name={"Sort by Date Ascending"}
-            func={function() { sortDateAsc(movies)}}
+            func={function() { 
+              sortDateAsc(movies)
+            }}
           />
           <Button 
             name={"Sort by Date Descending"}
