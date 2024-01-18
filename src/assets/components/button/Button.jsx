@@ -1,11 +1,11 @@
 import './button.css'
 
 const Button = (props) => {
-    return ( 
+    return (
         <>
             <button>{props.name}</button>
         </>
-     );
+    );
 }
- 
+
 export default Button;

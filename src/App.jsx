@@ -7,6 +7,7 @@ import movies from './assets/data/data'
 function App() {
   const [dateAscending, setDateAscending] = useState(false)
   console.log(movies);
+
   return (
     <>
       <header>
@@ -31,6 +32,15 @@ function App() {
           />
           
         </nav>
+        <form action="#">
+          <input 
+          type="text" 
+          name="" 
+          id="" 
+          placeholder='Filmtitle'
+          onClick={''}
+          />
+        </form>
       </header>
       <main>
         {

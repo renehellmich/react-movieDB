@@ -12,12 +12,27 @@
   --color-background: rgba(244, 244, 244)
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
 nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 1rem;
   padding: 1rem;
+}
+
+input {
+  width: 40vw;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1rem;
 }
 
 main {
