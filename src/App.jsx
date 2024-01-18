@@ -14,7 +14,7 @@ function App() {
         {
           movies.map((movie, index) => {
             return (
-              <div key={index}>
+              <div key={index} className='movieContainer'>
                 <MovieContainer
                   title={movie.title}
                   director={movie.director}

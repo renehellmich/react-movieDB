@@ -1,0 +1,26 @@
+.movieContainer {
+    background: var(--color-container);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 200px;
+    width: var(--divContainer-width);
+    max-width: 360px;
+    padding: 1rem;
+    text-align: center;
+    
+}
+
+.movieDescription {
+    font-size: medium;
+}
+
+ul {
+    padding-top: 1rem
+}
+
+ul li {
+    font-size: small;
+    color: grey
+}

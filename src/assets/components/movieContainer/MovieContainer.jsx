@@ -1,4 +1,5 @@
 import GenreDiv from "../genreDiv/GenreDiv";
+import './moviecontainer.css'
 
 const MovieContainer = ({ title, director, year, duration, genre, rate }) => {
     return (
