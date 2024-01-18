@@ -8,6 +8,13 @@ function App() {
   const [dateAscending, setDateAscending] = useState(false)
   console.log(movies);
 
+
+  const sortDateAsc = (data) => {
+    console.log("Data: ", data);
+    data.sort((a,b) => a.year - b.year)
+    console.log("Sortiertes Array: ", data);
+
+  }
   return (
     <>
       <header>
@@ -17,6 +24,7 @@ function App() {
           </button> */}
           <Button 
             name={"Sort by Date Ascending"}
+            func={function() { sortDateAsc(movies)}}
           />
           <Button 
             name={"Sort by Date Descending"}
@@ -54,11 +62,12 @@ function App() {
                   duration={movie.duration}
                   genre={movie.genre}
                   rate={movie.rate}
-                />
+                  />
               </div>
             )
           })
         }
+        {/* {sortDateAsc(movies)} */}
       </main>
     </>
   )
