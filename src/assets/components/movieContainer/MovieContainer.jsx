@@ -1,15 +1,15 @@
 import GenreDiv from "../genreDiv/GenreDiv";
 import './moviecontainer.css'
 
-const MovieContainer = ({ title, director, year, duration, genre, rate }) => {
+const MovieContainer = (props) => {
     return (
         <>
-            <h4>{title}</h4>
-            <p className="movieDescription">{year}</p>
-            <p className="movieDescription">{director}</p>
-            <p className="movieDescription">{duration}</p>
-            <p className="movieDescription">{rate}</p>
-            <ul>{genre.map((object, index) => {
+            <h4>{props.title}</h4>
+            <p className="movieDescription year">{props.year}</p>
+            <p className="movieDescription">{props.director}</p>
+            <p className="movieDescription">{props.duration}</p>
+            <p className="movieDescription">{props.rate}</p>
+            <ul>{props.genre.map((object, index) => {
                 return (
                     <div key={index}>
                         <GenreDiv

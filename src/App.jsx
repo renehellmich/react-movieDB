@@ -1,73 +1,116 @@
 import { useState } from 'react';
 import './App.css'
 import Button from './assets/components/button/button';
-import MovieContainer from './assets/components/movieContainer/MovieContainer'
 import movies from './assets/data/data'
+import MovieSection from './assets/components/movieSection/MovieSection';
 
 function App() {
-  const [dateAscending, setDateAscending] = useState(false)
-  console.log(movies);
+  const [movie, setMovies] = useState(movies)
+  console.log("Movie: ", movie);
 
-
-  const sortDateAsc = (data) => {
-    console.log("Data: ", data);
-    data.sort((a,b) => a.year - b.year)
-    console.log("Sortiertes Array: ", data);
-
+  const sortDateAsc = () => {
+    let dataCopy = [...movie]
+    dataCopy.sort((a,b) => a.year - b.year)
+    console.log(dataCopy);
+    setMovies(dataCopy)
+    
   }
+  const sortDateDesc = () => {
+    let dataCopy = [...movie]
+    dataCopy.sort((a,b) => b.year-a.year)
+    console.log(dataCopy);
+    setMovies(dataCopy)
+    
+  }
+
+  const sortRate = () => {
+    let dataCopy = [...movie]
+    dataCopy.sort((a,b) => {
+      if(b.rate < a.rate) {
+        return -1
+      } else {
+        return 1
+      }
+    })
+    console.log(dataCopy);
+    setMovies(dataCopy)
+  }
+
+  const sortAZ = () => {
+    let dataCopy = [...movie]
+    dataCopy.sort((a,b) => {
+      if ( a.title < b.title) {
+        return -1
+      } else {
+        return 1
+      }
+    })
+    console.log(dataCopy);
+    setMovies(dataCopy)
+  }
+
+  const sortZA = () => {
+    let dataCopy = [...movie]
+    dataCopy.sort((a,b) => {
+      if (a.title > b.title) {
+        return - 1
+      } else {
+        return 1
+      }
+    })
+    console.log(dataCopy);
+    setMovies(dataCopy)
+  }
+
   return (
     <>
       <header>
         <nav>
-          {/* <button onClick={""}>
-            Sort by Date Ascending
-          </button> */}
-          <Button 
+          <Button
             name={"Sort by Date Ascending"}
-            func={function() { 
+            func={function () {
               sortDateAsc(movies)
             }}
           />
-          <Button 
+          <Button
             name={"Sort by Date Descending"}
+            func={function () {
+              sortDateDesc(movies)
+            }}
           />
-          <Button 
+          <Button
             name={"Best Rate"}
+            func={function () {
+              sortRate(movies)
+            }}
           />
-          <Button 
+          <Button
             name={"A-Z"}
+            func={function () {
+              sortAZ(movies)
+            }}
           />
-          <Button 
+          <Button
             name={"Z-A"}
+            func={function () {
+              sortZA(movies)
+            }}
           />
-          
+
         </nav>
         <form action="#">
-          <input 
-          type="text" 
-          name="" 
-          id="" 
-          placeholder='Filmtitle'
-          onClick={''}
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder='Filmtitle'
+            onClick={''}
           />
         </form>
       </header>
       <main>
         {
-          movies.map((movie, index) => {
-            return (
-              <div key={index} className='movieContainer'>
-                <MovieContainer
-                  title={movie.title}
-                  director={movie.director}
-                  year={movie.year}
-                  duration={movie.duration}
-                  genre={movie.genre}
-                  rate={movie.rate}
-                  />
-              </div>
-            )
-          })
+          <MovieSection data={movie} />
         }
         {/* {sortDateAsc(movies)} */}
       </main>
